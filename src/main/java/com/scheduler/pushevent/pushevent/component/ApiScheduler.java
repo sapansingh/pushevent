@@ -31,7 +31,7 @@ public class ApiScheduler {
     }
 
     @Async
-    @Scheduled(fixedRate = 20000)
+    @Scheduled(fixedRate = 30000)
     public void callApiEvery45Minutesd() {
         String url = "http://192.168.200.10/pushservice/casepush.php"; // Replace with your API URL
         try {

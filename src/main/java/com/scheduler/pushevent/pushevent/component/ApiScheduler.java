@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
+@EnableAsync
 public class ApiScheduler {
 
     private final RestTemplate restTemplate;
@@ -19,7 +20,7 @@ public class ApiScheduler {
     //@Scheduled(cron = "0 0/45 * * * ?") // Cron expression for every 45 minutes
     //
     @Async
-    @Scheduled(fixedDelay = 3000000)
+    @Scheduled(fixedRate = 3000000)
     public void callApiEvery45Minutes() {
         String url = "http://192.168.200.10/pushservice/tokengerator.php"; // Replace with your API URL
         try {
@@ -32,7 +33,7 @@ public class ApiScheduler {
     }
 
     @Async
-    @Scheduled(fixedDelay  = 30000)
+    @Scheduled(fixedRate = 30000)
     public void callApiEvery45Minutesd() {
         String url = "http://192.168.200.10/pushservice/casepush.php"; // Replace with your API URL
         try {
